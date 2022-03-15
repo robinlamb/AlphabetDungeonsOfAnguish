@@ -1,0 +1,19 @@
+{
+	"events": [
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[dlPlayerName] drinks a potion."
+		},
+		{
+			"emit_signal": "potiondrank",
+			"event_id": "dialogic_040"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.3",
+		"file": "timeline-1643948060.json",
+		"name": "tlPotion"
+	}
+}

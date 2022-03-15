@@ -1,0 +1,122 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://fonts/Game.tres" type="DynamicFont" id=1]
+[ext_resource path="res://fonts/Game2.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Credits.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://fonts/IrishGrover-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = SubResource( 1 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -5.65686
+margin_top = 5.65686
+margin_right = 1035.34
+margin_bottom = 652.657
+color = Color( 0.435294, 0.4, 0.4, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 405.879
+margin_top = 26.8701
+margin_right = 537.879
+margin_bottom = 74.8701
+custom_fonts/font = SubResource( 2 )
+text = "Credits"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+margin_left = 87.7574
+margin_top = 97.7036
+margin_right = 999.757
+margin_bottom = 475.704
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+
+[node name="Label2" type="Label" parent="ScrollContainer"]
+margin_right = 453.0
+margin_bottom = 1833.0
+custom_fonts/font = ExtResource( 1 )
+text = "Sounds used are from:
+
+Lasse Buhrmann: a.k.a. EmoPreben
+	Playersounds 1
+	Pain Sounds
+
+StarNinjas
+	Sword Sound Effects
+
+Supergeek
+	Do You Remember Laughter?
+
+remaxin
+	3 Melee Sounds
+
+www.kenney.nl
+	50 RPG Sound Effects
+
+farfadet46
+	Bad Sound
+
+rubberduck
+	40 CC0 water / splash / slime SFX
+	80 CC0 RPG SFX
+
+AntumDeluge
+	Bat Screeches
+	Large Wings Flap
+
+Owlish Media
+	202 More Sound Effects
+
+eXpl0it3r
+	Applause in a Large Hall or Church
+
+JaggedStone
+	Loopable Dungeon Ambience
+
+Robin Lamb
+	Pultergiest Voice
+	Snake Sounds
+	
+	Virtual Instruments:
+	
+	 Era II Medieval Legends
+	
+	Garritan Personal Orchestra
+	
+	Micro Olympus Choir
+	
+	Micro Apocalypse Perscussion
+	
+	
+	Music, 2D Art, and 3D Models by Robin Lamb"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 451.134
+margin_top = 537.401
+margin_right = 519.134
+margin_bottom = 575.401
+custom_fonts/font = ExtResource( 2 )
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

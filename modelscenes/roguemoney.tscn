@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://models/roguemoney.glb" type="PackedScene" id=1]
+[ext_resource path="res://modelscenes/roguemoney.gd" type="Script" id=2]
+[ext_resource path="res://sounds/items/gold.ogg" type="AudioStream" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.964706, 0.941176, 0.309804, 1 )
+metallic = 1.0
+metallic_specular = 1.0
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 1.10571, 1.12497, 1 )
+
+[node name="roguemoney" groups=[
+"items",
+] instance=ExtResource( 1 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+script = ExtResource( 2 )
+
+[node name="Text" parent="." index="0"]
+material/0 = SubResource( 1 )
+
+[node name="Area" type="Area" parent="." index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Area" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.787398, 0.939073, 6.88365e-08 )
+shape = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="." index="2"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="3"]
+stream = ExtResource( 3 )
+
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

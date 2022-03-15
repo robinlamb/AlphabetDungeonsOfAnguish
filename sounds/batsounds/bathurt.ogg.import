@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bathurt.ogg-f7dfaffd5cb34ff17929d917ca619621.oggstr"
+
+[deps]
+
+source_file="res://sounds/batsounds/bathurt.ogg"
+dest_files=[ "res://.import/bathurt.ogg-f7dfaffd5cb34ff17929d917ca619621.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

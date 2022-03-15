@@ -1,0 +1,361 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://modelscenes/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://images/rougefloortile.png" type="Texture" id=2]
+[ext_resource path="res://sounds/music/roguelikewingame.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Game.gd" type="Script" id=9]
+[ext_resource path="res://sounds/music/roguelikevictory.ogg" type="AudioStream" id=10]
+[ext_resource path="res://sounds/music/roguelikedeath.ogg" type="AudioStream" id=11]
+[ext_resource path="res://sounds/music/roguelikedungeon.ogg" type="AudioStream" id=13]
+[ext_resource path="res://sounds/music/roguebattle.ogg" type="AudioStream" id=14]
+[ext_resource path="res://fonts/IrishGrover-Regular.ttf" type="DynamicFontData" id=15]
+[ext_resource path="res://fonts/Fresca-Regular.ttf" type="DynamicFontData" id=16]
+[ext_resource path="res://fonts/Game.tres" type="DynamicFont" id=17]
+[ext_resource path="res://fonts/Game2.tres" type="DynamicFont" id=18]
+
+[sub_resource type="Environment" id=1]
+background_mode = 1
+background_color = Color( 0.180392, 0.14902, 0.14902, 1 )
+ambient_light_color = Color( 0.894118, 0.811765, 0.811765, 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 2 )
+uv1_scale = Vector3( 60, 20, 20 )
+
+[sub_resource type="PlaneMesh" id=3]
+material = SubResource( 2 )
+size = Vector2( 120, 40 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "fade"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("BattleMusic:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -40.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BattleMusic:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.8 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="DynamicFont" id=5]
+size = 40
+font_data = ExtResource( 15 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 26
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 26
+font_data = ExtResource( 15 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 26
+font_data = ExtResource( 15 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 50
+font_data = ExtResource( 15 )
+
+[sub_resource type="SpatialMaterial" id=10]
+albedo_color = Color( 0.490196, 0.443137, 0.443137, 1 )
+
+[sub_resource type="CubeMesh" id=11]
+material = SubResource( 10 )
+size = Vector3( 2, 4, 40 )
+
+[sub_resource type="ConcavePolygonShape" id=12]
+data = PoolVector3Array( -1, 2, 20, 1, 2, 20, -1, -2, 20, 1, 2, 20, 1, -2, 20, -1, -2, 20, 1, 2, -20, -1, 2, -20, 1, -2, -20, -1, 2, -20, -1, -2, -20, 1, -2, -20, 1, 2, 20, 1, 2, -20, 1, -2, 20, 1, 2, -20, 1, -2, -20, 1, -2, 20, -1, 2, -20, -1, 2, 20, -1, -2, -20, -1, 2, 20, -1, -2, 20, -1, -2, -20, 1, 2, 20, -1, 2, 20, 1, 2, -20, -1, 2, 20, -1, 2, -20, 1, 2, -20, -1, -2, 20, 1, -2, 20, -1, -2, -20, 1, -2, 20, 1, -2, -20, -1, -2, -20 )
+
+[sub_resource type="ConcavePolygonShape" id=13]
+data = PoolVector3Array( -1, 2, 20, 1, 2, 20, -1, -2, 20, 1, 2, 20, 1, -2, 20, -1, -2, 20, 1, 2, -20, -1, 2, -20, 1, -2, -20, -1, 2, -20, -1, -2, -20, 1, -2, -20, 1, 2, 20, 1, 2, -20, 1, -2, 20, 1, 2, -20, 1, -2, -20, 1, -2, 20, -1, 2, -20, -1, 2, 20, -1, -2, -20, -1, 2, 20, -1, -2, 20, -1, -2, -20, 1, 2, 20, -1, 2, 20, 1, 2, -20, -1, 2, 20, -1, 2, -20, 1, 2, -20, -1, -2, 20, 1, -2, 20, -1, -2, -20, 1, -2, 20, 1, -2, -20, -1, -2, -20 )
+
+[sub_resource type="CubeMesh" id=14]
+size = Vector3( 128, 4, 2 )
+
+[sub_resource type="SpatialMaterial" id=15]
+albedo_color = Color( 0.462745, 0.435294, 0.435294, 1 )
+
+[sub_resource type="ConcavePolygonShape" id=19]
+data = PoolVector3Array( -64, 2, 1, 64, 2, 1, -64, -2, 1, 64, 2, 1, 64, -2, 1, -64, -2, 1, 64, 2, -1, -64, 2, -1, 64, -2, -1, -64, 2, -1, -64, -2, -1, 64, -2, -1, 64, 2, 1, 64, 2, -1, 64, -2, 1, 64, 2, -1, 64, -2, -1, 64, -2, 1, -64, 2, -1, -64, 2, 1, -64, -2, -1, -64, 2, 1, -64, -2, 1, -64, -2, -1, 64, 2, 1, -64, 2, 1, 64, 2, -1, -64, 2, 1, -64, 2, -1, 64, 2, -1, -64, -2, 1, 64, -2, 1, -64, -2, -1, 64, -2, 1, 64, -2, -1, -64, -2, -1 )
+
+[sub_resource type="BoxShape" id=17]
+extents = Vector3( 62.6321, 2.19308, 1 )
+
+[sub_resource type="Animation" id=18]
+resource_name = "screenfade"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 1.8, 2.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 0.0235294, 0.0235294, 0.0235294, 1 ), Color( 0.0235294, 0.0235294, 0.0235294, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Game" type="Spatial" groups=[
+"game",
+]]
+script = ExtResource( 9 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.93274, 0.130712, 0.336022, 0, -0.93197, 0.362536, 0.36055, -0.338151, -0.869285, 0, 3.66037, -3.83565 )
+light_color = Color( 0.631373, 0.521569, 0.521569, 1 )
+light_energy = 0.5
+shadow_enabled = true
+
+[node name="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12.2919, 1.56304, -16.6606 )
+
+[node name="Floor" type="MeshInstance" parent="."]
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+
+[node name="MusicDeath" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+
+[node name="DungeonMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+autoplay = true
+
+[node name="BattleMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+
+[node name="FadeBattleMusic" type="AnimationPlayer" parent="."]
+anims/fade = SubResource( 4 )
+
+[node name="ItemMenu" type="ColorRect" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -192.0
+margin_top = -156.0
+margin_right = 192.0
+margin_bottom = 156.0
+color = Color( 0.156863, 0.12549, 0.12549, 0.784314 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ItemMenu"]
+margin_left = 5.58575
+margin_top = 6.68631
+margin_right = 377.586
+margin_bottom = 54.6863
+custom_fonts/font = SubResource( 5 )
+text = "Items:"
+align = 1
+valign = 1
+
+[node name="lblPotions" type="Label" parent="ItemMenu"]
+margin_left = 56.5685
+margin_top = 97.5807
+margin_right = 158.569
+margin_bottom = 128.581
+custom_fonts/font = ExtResource( 17 )
+text = "Potions: 0"
+
+[node name="lblAntidotes" type="Label" parent="ItemMenu"]
+margin_left = 55.1544
+margin_top = 173.948
+margin_right = 182.154
+margin_bottom = 204.948
+custom_fonts/font = SubResource( 6 )
+text = "Antidotes: 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btnPotions" type="Button" parent="ItemMenu"]
+anchor_bottom = 0.16
+margin_left = 249.586
+margin_top = 92.5858
+margin_right = 332.586
+margin_bottom = 84.0258
+custom_fonts/font = SubResource( 7 )
+text = "Use"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btnAntidotes" type="Button" parent="ItemMenu"]
+anchor_right = 0.016
+anchor_bottom = 0.069
+margin_left = 254.172
+margin_top = 178.314
+margin_right = 325.028
+margin_bottom = 178.235
+custom_fonts/font = SubResource( 8 )
+text = "Use"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btnBack" type="Button" parent="ItemMenu"]
+margin_left = 143.929
+margin_top = 256.0
+margin_right = 266.929
+margin_bottom = 294.0
+custom_fonts/font = ExtResource( 18 )
+text = "Go Back"
+
+[node name="lblHealth" type="Label" parent="."]
+margin_left = 16.9706
+margin_top = 1.4142
+margin_right = 146.971
+margin_bottom = 60.4142
+custom_fonts/font = ExtResource( 18 )
+text = "Health: 100"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lblGoldCollected" type="Label" parent="."]
+margin_left = 14.2721
+margin_top = 49.4731
+margin_right = 210.272
+margin_bottom = 96.4731
+custom_fonts/font = ExtResource( 18 )
+text = "Gold Collected: 0"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lblPotions" type="Label" parent="."]
+margin_left = 809.0
+margin_top = 13.0
+margin_right = 972.0
+margin_bottom = 45.0
+custom_fonts/font = ExtResource( 18 )
+text = "Potions: 0"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lblAntidotes" type="Label" parent="."]
+margin_left = 807.0
+margin_top = 59.0
+margin_right = 970.0
+margin_bottom = 91.0
+custom_fonts/font = ExtResource( 18 )
+text = "Antidotes: 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lblLevel" type="Label" parent="."]
+margin_left = 406.0
+margin_top = 20.0
+margin_right = 573.0
+margin_bottom = 84.0
+custom_fonts/font = SubResource( 9 )
+text = "Level 1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lblKeyFound" type="Label" parent="."]
+visible = false
+margin_left = 22.5736
+margin_top = 549.694
+margin_right = 147.574
+margin_bottom = 581.694
+custom_fonts/font = ExtResource( 18 )
+text = "Key Found"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 58.842, 0, 0 )
+mesh = SubResource( 11 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="MeshInstance"]
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance/StaticBody"]
+shape = SubResource( 12 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+pause_mode = 1
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -59.143, 0, 0 )
+mesh = SubResource( 11 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="MeshInstance2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance2/StaticBody"]
+shape = SubResource( 13 )
+
+[node name="MeshInstance3" type="MeshInstance" parent="."]
+transform = Transform( -0.937607, 0, 0, 0, 1, 0, 0, 0, 1, -0.447043, 0, 20.477 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 15 )
+
+[node name="StaticBody" type="StaticBody" parent="MeshInstance3"]
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance3/StaticBody"]
+shape = SubResource( 19 )
+
+[node name="StaticBody" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20.2259 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1.47443, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 17 )
+
+[node name="WinGame" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="ScreenFade" type="ColorRect" parent="."]
+margin_left = -23.0
+margin_right = 1030.0
+margin_bottom = 607.0
+mouse_filter = 2
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ScreenFade"]
+anims/screenfade = SubResource( 18 )
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]
+[connection signal="pressed" from="ItemMenu/btnPotions" to="." method="_on_btnPotions_pressed"]
+[connection signal="pressed" from="ItemMenu/btnAntidotes" to="." method="_on_btnAntidotes_pressed"]
+[connection signal="pressed" from="ItemMenu/btnBack" to="." method="_on_btnBack_pressed"]

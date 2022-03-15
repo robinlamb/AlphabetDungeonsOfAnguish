@@ -1,0 +1,19 @@
+{
+	"events": [
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[dlPlayerName] attacks!"
+		},
+		{
+			"emit_signal": "playerattacked",
+			"event_id": "dialogic_040"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.3",
+		"file": "timeline-1643947433.json",
+		"name": "tlPlayerAttacks"
+	}
+}

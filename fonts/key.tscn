@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://models/key.glb" type="PackedScene" id=1]
+[ext_resource path="res://fonts/key.gd" type="Script" id=2]
+[ext_resource path="res://sounds/items/handleCoins.ogg" type="AudioStream" id=3]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 2.84678, 1.34897, 1 )
+
+[node name="key" groups=[
+"items",
+] instance=ExtResource( 1 )]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.222722, 0 )
+script = ExtResource( 2 )
+
+[node name="Area" type="Area" parent="." index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.973773, -0.0276053, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Area" index="0"]
+shape = SubResource( 1 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="2"]
+stream = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="." index="3"]
+
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

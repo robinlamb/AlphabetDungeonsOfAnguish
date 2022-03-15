@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bat_wings.ogg-845324c83c99844420097b25c027e91b.oggstr"
+
+[deps]
+
+source_file="res://sounds/batsounds/bat_wings.ogg"
+dest_files=[ "res://.import/bat_wings.ogg-845324c83c99844420097b25c027e91b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0.2

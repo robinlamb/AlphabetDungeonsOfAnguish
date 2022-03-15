@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://models/stairs.glb" type="PackedScene" id=1]
+[ext_resource path="res://modelscenes/lock.tscn" type="PackedScene" id=2]
+[ext_resource path="res://modelscenes/stairs.gd" type="Script" id=3]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 5.07037, 3.74444, 3.05381 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 1.77192, 1.69722, 2.41712 )
+
+[node name="stairs" groups=[
+"items",
+] instance=ExtResource( 1 )]
+transform = Transform( -1.31134e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.31134e-08, 0, 0, 0 )
+script = ExtResource( 3 )
+
+[node name="Cube" parent="." index="0"]
+transform = Transform( 3.80798, 0, 0, 0, 1, 0, 0, 0, 2.73077, 0, 0.980975, 0 )
+
+[node name="StaticBody" type="StaticBody" parent="." index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody" index="0"]
+transform = Transform( 0.742763, 0, 0, 0, 1, 0, 0, 0, 0.925485, -0.141974, 3.41968, 0 )
+shape = SubResource( 1 )
+
+[node name="lock" parent="." index="2" instance=ExtResource( 2 )]
+transform = Transform( 0.505594, 0, -8.4521e-08, 0, 2.41995, 0, -4.22604e-08, 0, 2.9448, 4.275, 1.47157, -0.134713 )
+
+[node name="lockarea" type="Area" parent="." index="3"]
+
+[node name="CollisionShape" type="CollisionShape" parent="lockarea" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.03595, 1.06372, 0 )
+shape = SubResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="4"]
+
+[node name="Timer" type="Timer" parent="." index="5"]
+
+[node name="tmrStairClimb" type="Timer" parent="." index="6"]
+
+[connection signal="body_entered" from="lockarea" to="." method="_on_lockarea_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="tmrStairClimb" to="." method="_on_tmrStairClimb_timeout"]

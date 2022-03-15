@@ -1,0 +1,1159 @@
+[gd_scene load_steps=38 format=2]
+
+[ext_resource path="res://images/playerparts/smileynormal.png" type="Texture" id=1]
+[ext_resource path="res://images/playerparts/smileypoisoned.png" type="Texture" id=2]
+[ext_resource path="res://images/playerparts/eyepained.png" type="Texture" id=3]
+[ext_resource path="res://images/playerparts/eyenormal.png" type="Texture" id=4]
+[ext_resource path="res://images/playerparts/eyedead.png" type="Texture" id=5]
+[ext_resource path="res://images/playerparts/mouthnormal.png" type="Texture" id=6]
+[ext_resource path="res://images/playerparts/mouthsmallopen.png" type="Texture" id=7]
+[ext_resource path="res://images/playerparts/mouthlargeopen.png" type="Texture" id=8]
+[ext_resource path="res://images/playerparts/mouthdead.png" type="Texture" id=9]
+[ext_resource path="res://images/playerparts/mouthfrown.png" type="Texture" id=10]
+[ext_resource path="res://images/playerparts/mouthgrin.png" type="Texture" id=11]
+[ext_resource path="res://images/playerparts/mouthstraight.png" type="Texture" id=12]
+[ext_resource path="res://images/playerparts/cheek.png" type="Texture" id=13]
+[ext_resource path="res://images/playerparts/cheekred.png" type="Texture" id=14]
+[ext_resource path="res://images/heart.png" type="Texture" id=15]
+[ext_resource path="res://images/particle.png" type="Texture" id=16]
+[ext_resource path="res://images/playerparts/eyebrow.png" type="Texture" id=17]
+[ext_resource path="res://sounds/player/roguelikesick.ogg" type="AudioStream" id=18]
+[ext_resource path="res://modelscenes/player.gd" type="Script" id=19]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "poisoned",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "dead",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "pained",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "dead",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "pained",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "dead",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "largeopen",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "straight",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "smallopen",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "frown",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "grin",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpatialMaterial" id=5]
+flags_transparent = true
+flags_do_not_receive_shadows = true
+vertex_color_use_as_albedo = true
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_texture = ExtResource( 16 )
+
+[sub_resource type="QuadMesh" id=6]
+material = SubResource( 5 )
+size = Vector2( 0.3, 0.4 )
+
+[sub_resource type="Gradient" id=7]
+offsets = PoolRealArray( 0, 0.771812 )
+colors = PoolColorArray( 0.956863, 0.466667, 0.0392157, 1, 0.945098, 0.0666667, 0.0509804, 1 )
+
+[sub_resource type="SpatialMaterial" id=8]
+flags_transparent = true
+flags_unshaded = true
+flags_do_not_receive_shadows = true
+params_billboard_mode = 3
+params_billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_texture = ExtResource( 15 )
+
+[sub_resource type="QuadMesh" id=9]
+material = SubResource( 8 )
+
+[sub_resource type="Animation" id=10]
+resource_name = "attack"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("AnimatedSprite3D/EyebrowLeft:translation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -0.4313, -0.25, 0, 0.25, 0, -0.4313, -0.25, 0, 0.25, 0, -0.4313, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.4, 0.8 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("AnimatedSprite3D/EyebrowLeft:translation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0.842965, -0.25, 0, 0.25, 0, 0.842965, -0.25, 0, 0.25, 0, 0.842965, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.4, 0.8 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("AnimatedSprite3D/EyebrowLeft:translation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0.0253172, -0.25, 0, 0.25, 0, 0.0253172, -0.25, 0, 0.25, 0, 0.0253172, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.4, 0.8 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("AnimatedSprite3D/EyebrowLeft:rotation_degrees:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( -7.0596e-06, -0.25, 0, 0.25, 0, -6.3537e-06, -0.25, 0, 0.25, 0, -7.0596e-06, -0.25, 0, 0.25, 0, -7.0596e-06, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.8 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("AnimatedSprite3D/EyebrowLeft:rotation_degrees:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 180, -0.25, 0, 0.25, 0, 180, -0.25, 0, 0.25, 0, 180, -0.25, 0, 0.25, 0, 180, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.8 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("AnimatedSprite3D/EyebrowLeft:rotation_degrees:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( -139.731, -0.25, 0, 0.25, 0, -130.136, -0.25, 0, 0.25, 0, -139.731, -0.25, 0, 0.25, 0, -139.731, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.8 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("AnimatedSprite3D/EyebrowRight:translation:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 0.445, -0.25, 0, 0.25, 0, 0.445, -0.25, 0, 0.25, 0, 0.445, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.4, 0.8 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("AnimatedSprite3D/EyebrowRight:translation:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 0.87, -0.25, 0, 0.25, 0, 0.87, -0.25, 0, 0.25, 0, 0.87, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.4, 0.8 )
+}
+tracks/8/type = "bezier"
+tracks/8/path = NodePath("AnimatedSprite3D/EyebrowRight:translation:z")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"points": PoolRealArray( 0.025, -0.25, 0, 0.25, 0, 0.025, -0.25, 0, 0.25, 0, 0.025, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.4, 0.8 )
+}
+tracks/9/type = "bezier"
+tracks/9/path = NodePath("AnimatedSprite3D/EyebrowRight:rotation_degrees:x")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"points": PoolRealArray( -1.8093, -0.25, 0, 0.25, 0, -1.6652, -0.25, 0, 0.25, 0, -1.8093, -0.25, 0, 0.25, 0, -1.8093, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.8 )
+}
+tracks/10/type = "bezier"
+tracks/10/path = NodePath("AnimatedSprite3D/EyebrowRight:rotation_degrees:y")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"points": PoolRealArray( -0.320663, -0.25, 0, 0.25, 0, -0.776945, -0.25, 0, 0.25, 0, -0.320663, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2, 0.4 )
+}
+tracks/11/type = "bezier"
+tracks/11/path = NodePath("AnimatedSprite3D/EyebrowRight:rotation_degrees:z")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"points": PoolRealArray( 44.3918, -0.25, 0, 0.25, 0, 59.357, -0.25, 0, 0.25, 0, 44.3918, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2, 0.4 )
+}
+tracks/12/type = "bezier"
+tracks/12/path = NodePath("AnimatedSprite3D/Mouth:scale:x")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1.5, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 1 )
+}
+tracks/13/type = "bezier"
+tracks/13/path = NodePath("AnimatedSprite3D/Mouth:scale:y")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1.5, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 1 )
+}
+tracks/14/type = "bezier"
+tracks/14/path = NodePath("AnimatedSprite3D/Mouth:scale:z")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2, 1 )
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "die"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("AnimatedSprite3D/EyebrowLeft:translation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -0.4313, -0.25, 0, 0.25, 0, -0.4313, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("AnimatedSprite3D/EyebrowLeft:translation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0.779496, -0.25, 0, 0.25, 0, 0.917246, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("AnimatedSprite3D/EyebrowLeft:translation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0.0253172, -0.25, 0, 0.25, 0, 0.0253172, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("AnimatedSprite3D/EyebrowLeft:rotation_degrees:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 180, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("AnimatedSprite3D/EyebrowLeft:rotation_degrees:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("AnimatedSprite3D/EyebrowLeft:rotation_degrees:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("AnimatedSprite3D/EyebrowRight:translation:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 0.445, -0.25, 0, 0.25, 0, 0.445, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("AnimatedSprite3D/EyebrowRight:translation:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 0.87, -0.25, 0, 0.25, 0, 0.961663, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3 )
+}
+tracks/8/type = "bezier"
+tracks/8/path = NodePath("AnimatedSprite3D/EyebrowRight:translation:z")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"points": PoolRealArray( 0.025, -0.25, 0, 0.25, 0, 0.025, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3 )
+}
+tracks/9/type = "bezier"
+tracks/9/path = NodePath("AnimatedSprite3D/EyebrowRight:rotation_degrees:x")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"points": PoolRealArray( 1.28877, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/10/type = "bezier"
+tracks/10/path = NodePath("AnimatedSprite3D/EyebrowRight:rotation_degrees:y")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"points": PoolRealArray( -0.320663, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/11/type = "bezier"
+tracks/11/path = NodePath("AnimatedSprite3D/EyebrowRight:rotation_degrees:z")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"points": PoolRealArray( 44.3918, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/12/type = "bezier"
+tracks/12/path = NodePath("AnimatedSprite3D/Mouth:scale:x")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1.5, -0.25, 0, 0.25, 0, 1.5, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3, 0.5, 1 )
+}
+tracks/13/type = "bezier"
+tracks/13/path = NodePath("AnimatedSprite3D/Mouth:scale:y")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1.5, -0.25, 0, 0.25, 0, 1.5, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3, 0.5, 1 )
+}
+tracks/14/type = "bezier"
+tracks/14/path = NodePath("AnimatedSprite3D/Mouth:scale:z")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3 )
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "drink"
+length = 1.9
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite3D/CheekLeft:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite3D/CheekRight:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("AnimatedSprite3D/EyebrowLeft:rotation_degrees:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 180, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("AnimatedSprite3D/EyebrowLeft:rotation_degrees:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("AnimatedSprite3D/EyebrowLeft:rotation_degrees:z")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("AnimatedSprite3D/EyebrowLeft:translation:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( -0.4313, -0.25, 0, 0.25, 0, -0.4313, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("AnimatedSprite3D/EyebrowLeft:translation:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 0.779496, -0.25, 0, 0.25, 0, 0.824597, -0.25, 0, 0.25, 0, 0.779496, -0.25, 0, 0.25, 0, 0.779496, -0.25, 0, 0.25, 0, 0.824597, -0.25, 0, 0.25, 0, 0.779496, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 0.7, 1.4, 1.6, 1.7 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("AnimatedSprite3D/EyebrowLeft:translation:z")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 0.0253172, -0.25, 0, 0.25, 0, 0.0253172, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/8/type = "bezier"
+tracks/8/path = NodePath("AnimatedSprite3D/EyebrowRight:translation:x")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"points": PoolRealArray( 0.445, -0.25, 0, 0.25, 0, 0.445, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/9/type = "bezier"
+tracks/9/path = NodePath("AnimatedSprite3D/EyebrowRight:translation:y")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"points": PoolRealArray( 0.87, -0.25, 0, 0.25, 0, 0.960258, -0.25, 0, 0.25, 0, 0.87, -0.25, 0, 0.25, 0, 0.87, -0.25, 0, 0.25, 0, 0.960258, -0.25, 0, 0.25, 0, 0.87, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 0.7, 1.4, 1.6, 1.7 )
+}
+tracks/10/type = "bezier"
+tracks/10/path = NodePath("AnimatedSprite3D/EyebrowRight:translation:z")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"points": PoolRealArray( 0.025, -0.25, 0, 0.25, 0, 0.025, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/11/type = "bezier"
+tracks/11/path = NodePath("AnimatedSprite3D/EyebrowRight:rotation_degrees:x")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"points": PoolRealArray( -1.8093, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/12/type = "bezier"
+tracks/12/path = NodePath("AnimatedSprite3D/EyebrowRight:rotation_degrees:y")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"points": PoolRealArray( -0.320663, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/13/type = "bezier"
+tracks/13/path = NodePath("AnimatedSprite3D/EyebrowRight:rotation_degrees:z")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"points": PoolRealArray( 44.3918, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/14/type = "bezier"
+tracks/14/path = NodePath("AnimatedSprite3D/CheekLeft:translation:x")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"points": PoolRealArray( -0.358584, -0.25, 0, 0.25, 0, -0.358584, -0.25, 0, 0.25, 0, -0.358584, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 0.7 )
+}
+tracks/15/type = "bezier"
+tracks/15/path = NodePath("AnimatedSprite3D/CheekLeft:translation:y")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"points": PoolRealArray( -0.502278, -0.25, 0, 0.25, 0, -0.502278, -0.25, 0, 0.25, 0, -0.434026, -0.25, 0, 0.25, 0, -0.616656, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 0.501, 0.7 )
+}
+tracks/16/type = "bezier"
+tracks/16/path = NodePath("AnimatedSprite3D/CheekLeft:translation:z")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"points": PoolRealArray( 0.214627, -0.25, 0, 0.25, 0, 0.214627, -0.25, 0, 0.25, 0, 0.214627, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 0.7 )
+}
+tracks/17/type = "bezier"
+tracks/17/path = NodePath("AnimatedSprite3D/CheekRight:translation:x")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"points": PoolRealArray( 0.345679, -0.25, 0, 0.25, 0, 0.345679, -0.25, 0, 0.25, 0, 0.345679, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 0.7 )
+}
+tracks/18/type = "bezier"
+tracks/18/path = NodePath("AnimatedSprite3D/CheekRight:translation:y")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"points": PoolRealArray( -0.504463, -0.25, 0, 0.25, 0, -0.504463, -0.25, 0, 0.25, 0, -0.595764, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 0.7 )
+}
+tracks/19/type = "bezier"
+tracks/19/path = NodePath("AnimatedSprite3D/CheekRight:translation:z")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"points": PoolRealArray( 0.206052, -0.25, 0, 0.25, 0, 0.206052, -0.25, 0, 0.25, 0, 0.206052, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 0.7 )
+}
+tracks/20/type = "bezier"
+tracks/20/path = NodePath("AnimatedSprite3D/Mouth:scale:x")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1.5, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1.4, 1.7, 1.9 )
+}
+tracks/21/type = "bezier"
+tracks/21/path = NodePath("AnimatedSprite3D/Mouth:scale:y")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1.4, 1.7, 1.9 )
+}
+tracks/22/type = "bezier"
+tracks/22/path = NodePath("AnimatedSprite3D/Mouth:scale:z")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1.4, 1.7, 1.9 )
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "hurt"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("AnimatedSprite3D/EyebrowLeft:rotation_degrees:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -7.0596e-06, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("AnimatedSprite3D/EyebrowLeft:rotation_degrees:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 180, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("AnimatedSprite3D/EyebrowLeft:rotation_degrees:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( -139.731, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("AnimatedSprite3D/EyebrowRight:rotation_degrees:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1.28877, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("AnimatedSprite3D/EyebrowRight:rotation_degrees:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray(  ),
+"times": PoolRealArray(  )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("AnimatedSprite3D/EyebrowRight:rotation_degrees:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray(  ),
+"times": PoolRealArray(  )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("AnimatedSprite3D/EyebrowLeft:translation:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( -0.4313, -0.25, 0, 0.25, 0, -0.4313, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("AnimatedSprite3D/EyebrowLeft:translation:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 0.779496, -0.25, 0, 0.25, 0, 0.868547, -0.25, 0, 0.25, 0, 0.779496, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2, 0.4 )
+}
+tracks/8/type = "bezier"
+tracks/8/path = NodePath("AnimatedSprite3D/EyebrowLeft:translation:z")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"points": PoolRealArray( 0.0253172, -0.25, 0, 0.25, 0, 0.0253172, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2 )
+}
+tracks/9/type = "bezier"
+tracks/9/path = NodePath("AnimatedSprite3D/EyebrowRight:translation:x")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"points": PoolRealArray( 0.445, -0.25, 0, 0.25, 0, 0.445, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2 )
+}
+tracks/10/type = "bezier"
+tracks/10/path = NodePath("AnimatedSprite3D/EyebrowRight:translation:y")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"points": PoolRealArray( 0.87, -0.25, 0, 0.25, 0, 0.937352, -0.25, 0, 0.25, 0, 0.87, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2, 0.4 )
+}
+tracks/11/type = "bezier"
+tracks/11/path = NodePath("AnimatedSprite3D/EyebrowRight:translation:z")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"points": PoolRealArray( 0.025, -0.25, 0, 0.25, 0, 0.025, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2 )
+}
+tracks/12/type = "bezier"
+tracks/12/path = NodePath("AnimatedSprite3D/Mouth:scale:x")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.4, 0.9 )
+}
+tracks/13/type = "bezier"
+tracks/13/path = NodePath("AnimatedSprite3D/Mouth:scale:y")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.4, 0.9 )
+}
+tracks/14/type = "bezier"
+tracks/14/path = NodePath("AnimatedSprite3D/Mouth:scale:z")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.4, 0.9 )
+}
+
+[sub_resource type="Animation" id=14]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite3D/EyeLeft:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.422494, 0.409135, 0.138969 ), Vector3( 0.422, 0.45, 0.139 ), Vector3( 0.422494, 0.409135, 0.138969 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite3D/EyeRight:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -0.337995, 0.373312, 0.0725088 ), Vector3( -0.338, 0.4, 0.073 ), Vector3( -0.337995, 0.373312, 0.0725088 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite3D/EyebrowLeft:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 180, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite3D/EyebrowLeft:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -0.4313, 0.779496, 0.0253172 ), Vector3( -0.431, 0.8, 0.025 ), Vector3( -0.4313, 0.779496, 0.0253172 ), Vector3( -0.431, 0.8, 0.025 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite3D/CheekLeft:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AnimatedSprite3D/CheekSpotLeft:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("AnimatedSprite3D/CheekRight:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("AnimatedSprite3D/CheekSpotRight:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AnimatedSprite3D/EyebrowRight:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("AnimatedSprite3D/EyebrowLeft:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("AnimatedSprite3D/EyebrowRight:translation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.445, 0.87, 0.025 ), Vector3( 0.445, 0.9, 0.025 ), Vector3( 0.445, 0.87, 0.025 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("AnimatedSprite3D/CheekLeft:translation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -0.358584, -0.502278, 0.214627 ), Vector3( -0.359, -0.49, 0.215 ), Vector3( -0.358584, -0.502278, 0.214627 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("AnimatedSprite3D/CheekRight:translation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.345679, -0.504463, 0.206052 ), Vector3( 0.346, -0.49, 0.206 ), Vector3( 0.345679, -0.504463, 0.206052 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("AnimatedSprite3D/Mouth:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0.5, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("AnimatedSprite3D/Mouth:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("AnimatedSprite3D/Mouth:scale:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2 )
+}
+
+[sub_resource type="BoxShape" id=17]
+extents = Vector3( 1.33751, 1.10079, 0.635782 )
+
+[sub_resource type="SphereShape" id=18]
+radius = 4.0
+
+[node name="Spatial" type="KinematicBody" groups=[
+"player",
+]]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+script = ExtResource( 19 )
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+alpha_cut = 2
+frames = SubResource( 1 )
+
+[node name="EyebrowLeft" type="Sprite3D" parent="AnimatedSprite3D"]
+transform = Transform( 0.763018, -0.646377, -8.74228e-08, -0.646377, -0.763018, 1.23213e-07, -1.46347e-07, -3.75059e-08, -1, -0.4313, 0.842965, 0.0253172 )
+cast_shadow = 0
+texture = ExtResource( 17 )
+
+[node name="EyebrowRight" type="Sprite3D" parent="AnimatedSprite3D"]
+transform = Transform( 0.714685, -0.699424, -0.0055938, 0.699212, 0.714216, 0.031573, -0.0180877, -0.026476, 0.999485, 0.445, 0.87, 0.025 )
+cast_shadow = 0
+texture = ExtResource( 17 )
+
+[node name="EyeLeft" type="AnimatedSprite3D" parent="AnimatedSprite3D"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.422198, 0.433654, 0.138988 )
+cast_shadow = 0
+flip_h = true
+frames = SubResource( 2 )
+
+[node name="EyeRight" type="AnimatedSprite3D" parent="AnimatedSprite3D"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.338, 0.4, 0.073 )
+frames = SubResource( 3 )
+
+[node name="Mouth" type="AnimatedSprite3D" parent="AnimatedSprite3D"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0209197, -0.483761, 0.251859 )
+frames = SubResource( 4 )
+animation = "smallopen"
+
+[node name="CheekLeft" type="Sprite3D" parent="AnimatedSprite3D"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.358584, -0.616656, 0.214627 )
+visible = false
+texture = ExtResource( 13 )
+
+[node name="CheekSpotLeft" type="Sprite3D" parent="AnimatedSprite3D"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.665421, -0.281632, 0.180875 )
+visible = false
+texture = ExtResource( 14 )
+
+[node name="CheekRight" type="Sprite3D" parent="AnimatedSprite3D"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.345679, -0.595764, 0.206052 )
+visible = false
+flip_h = true
+texture = ExtResource( 13 )
+
+[node name="CheekSpotRight" type="Sprite3D" parent="AnimatedSprite3D"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.626676, -0.291898, 0.0692151 )
+visible = false
+texture = ExtResource( 14 )
+
+[node name="vomit" type="CPUParticles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7452e-08, -0.638709, 0.428401 )
+emitting = false
+amount = 200
+one_shot = true
+explosiveness = 0.26
+mesh = SubResource( 6 )
+emission_shape = 2
+emission_box_extents = Vector3( 0.2, 0.2, 0.2 )
+direction = Vector3( 1, 1, 0 )
+spread = 0.5
+gravity = Vector3( 0, -9.8, 2 )
+initial_velocity = 0.5
+linear_accel = 15.05
+angle = 15.5
+angle_random = 0.25
+color_ramp = SubResource( 7 )
+hue_variation = 0.13
+hue_variation_random = 0.38
+
+[node name="heartparticles" type="CPUParticles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.02863e-08, -0.0291219, 0.575209 )
+emitting = false
+amount = 10
+one_shot = true
+explosiveness = 0.23
+mesh = SubResource( 9 )
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3( 0, 5, 0 )
+initial_velocity = 0.5
+angular_velocity = 5.0
+radial_accel = 4.3
+tangential_accel = 4.15
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.92424e-07, 0.790251, 6.77654 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/attack = SubResource( 10 )
+anims/die = SubResource( 11 )
+anims/drink = SubResource( 12 )
+anims/hurt = SubResource( 13 )
+anims/idle = SubResource( 14 )
+anims/sick = SubResource( 15 )
+anims/vomiting = SubResource( 16 )
+
+[node name="VomitTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 17 )
+
+[node name="StartBattleArea" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="StartBattleArea"]
+shape = SubResource( 18 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="VomitTimer" to="." method="_on_VomitTimer_timeout"]
+[connection signal="body_entered" from="StartBattleArea" to="." method="_on_StartBattleArea_body_entered"]

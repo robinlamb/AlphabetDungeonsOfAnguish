@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/snakeattack.ogg-e85b4736e3e4100477e5496474057778.oggstr"
+
+[deps]
+
+source_file="res://sounds/snake/snakeattack.ogg"
+dest_files=[ "res://.import/snakeattack.ogg-e85b4736e3e4100477e5496474057778.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

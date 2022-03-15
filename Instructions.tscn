@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://fonts/Game.tres" type="DynamicFont" id=1]
+[ext_resource path="res://fonts/IrishGrover-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://fonts/Game2.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Instructions.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 2 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1030.0
+margin_bottom = 652.0
+color = Color( 0.431373, 0.392157, 0.392157, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ColorRect"]
+margin_left = 16.8995
+margin_top = 56.1005
+margin_right = 1019.9
+margin_bottom = 104.101
+custom_fonts/font = SubResource( 1 )
+text = "Instructions"
+align = 1
+valign = 1
+
+[node name="Label" type="Label" parent="."]
+margin_left = 91.6863
+margin_top = 146.047
+margin_right = 947.686
+margin_bottom = 449.047
+custom_fonts/font = ExtResource( 1 )
+text = "You are searching for a legendary shield in the Dungeons of Anguish.  There are five levels.  You must find a key to unlock the stairs on each level to go deeper into the dungeon.
+
+Controls: Arrow keys or WASD to move.  Mouse to make selections.
+
+Antidotes cure you of poison.
+
+Health potions will restore your health (but don't drink one if you are poisoned!)"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 489.318
+margin_top = 520.43
+margin_right = 557.318
+margin_bottom = 558.43
+custom_fonts/font = ExtResource( 3 )
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

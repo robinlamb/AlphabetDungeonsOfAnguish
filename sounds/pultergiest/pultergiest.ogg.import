@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/pultergiest.ogg-947ab2e9dffbaeb78141d65842a8974e.oggstr"
+
+[deps]
+
+source_file="res://sounds/pultergiest/pultergiest.ogg"
+dest_files=[ "res://.import/pultergiest.ogg-947ab2e9dffbaeb78141d65842a8974e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

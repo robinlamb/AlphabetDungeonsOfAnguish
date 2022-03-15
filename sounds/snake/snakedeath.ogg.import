@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/snakedeath.ogg-e2561dc274183384bcf499182a9239ed.oggstr"
+
+[deps]
+
+source_file="res://sounds/snake/snakedeath.ogg"
+dest_files=[ "res://.import/snakedeath.ogg-e2561dc274183384bcf499182a9239ed.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

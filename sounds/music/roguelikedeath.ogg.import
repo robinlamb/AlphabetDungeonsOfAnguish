@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/roguelikedeath.ogg-9c8914e78aa65d6087a1eb9a13694a65.oggstr"
+
+[deps]
+
+source_file="res://sounds/music/roguelikedeath.ogg"
+dest_files=[ "res://.import/roguelikedeath.ogg-9c8914e78aa65d6087a1eb9a13694a65.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

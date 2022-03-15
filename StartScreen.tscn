@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://images/shield.png" type="Texture" id=1]
+[ext_resource path="res://fonts/Game2.tres" type="DynamicFont" id=2]
+[ext_resource path="res://StartScreen.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://fonts/IrishGrover-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = SubResource( 1 )
+
+[node name="StartScreen" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1025.0
+margin_bottom = 700.0
+color = Color( 0.376471, 0.34902, 0.34902, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 705.0
+margin_top = 145.0
+margin_right = 960.0
+margin_bottom = 521.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 170.414
+margin_top = 19.8041
+margin_right = 976.414
+margin_bottom = 118.804
+custom_fonts/font = SubResource( 2 )
+text = "The Alphabet Dungeons of Anguish"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btnPlay" type="Button" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 370.828
+margin_top = 254.456
+margin_right = 543.828
+margin_bottom = 292.456
+custom_fonts/font = ExtResource( 2 )
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btnInstructions" type="Button" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 368.828
+margin_top = 321.971
+margin_right = 546.828
+margin_bottom = 359.971
+custom_fonts/font = ExtResource( 2 )
+text = "Instructions"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btnCredits" type="Button" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 367.0
+margin_top = 390.0
+margin_right = 547.0
+margin_bottom = 428.0
+custom_fonts/font = ExtResource( 2 )
+text = "Credits"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="btnPlay" to="." method="_on_btnPlay_pressed"]
+[connection signal="pressed" from="btnInstructions" to="." method="_on_btnInstructions_pressed"]
+[connection signal="pressed" from="btnCredits" to="." method="_on_btnCredits_pressed"]

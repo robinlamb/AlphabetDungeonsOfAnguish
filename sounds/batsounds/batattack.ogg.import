@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/batattack.ogg-786886f9f4e174b7535c75018be49a26.oggstr"
+
+[deps]
+
+source_file="res://sounds/batsounds/batattack.ogg"
+dest_files=[ "res://.import/batattack.ogg-786886f9f4e174b7535c75018be49a26.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

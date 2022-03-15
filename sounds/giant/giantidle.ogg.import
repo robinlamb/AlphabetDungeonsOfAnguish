@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/giantidle.ogg-49a18c3e046ac9cf8eaa052c4d485d01.oggstr"
+
+[deps]
+
+source_file="res://sounds/giant/giantidle.ogg"
+dest_files=[ "res://.import/giantidle.ogg-49a18c3e046ac9cf8eaa052c4d485d01.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

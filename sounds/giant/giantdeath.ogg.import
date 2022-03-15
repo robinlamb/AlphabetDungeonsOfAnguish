@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/giantdeath.ogg-1f758e61b8d5367d3b720da731cbd5fd.oggstr"
+
+[deps]
+
+source_file="res://sounds/giant/giantdeath.ogg"
+dest_files=[ "res://.import/giantdeath.ogg-1f758e61b8d5367d3b720da731cbd5fd.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

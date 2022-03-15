@@ -1,0 +1,43 @@
+{
+	"glossary": [
+
+	],
+	"variables": [
+		{
+			"id": "1644025848-648",
+			"name": "dlGoldAmount",
+			"type": 0,
+			"value": "10"
+		},
+		{
+			"id": "1643946706-918",
+			"name": "dlEnemyName",
+			"type": 0,
+			"value": "monster"
+		},
+		{
+			"id": "1643946677-146",
+			"name": "dlEnemyDamage",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1643946823-483",
+			"name": "dlPoisoned",
+			"type": 0,
+			"value": "false"
+		},
+		{
+			"id": "1643946611-787",
+			"name": "dlPlayerName",
+			"type": 0,
+			"value": "Player"
+		},
+		{
+			"id": "1643946659-366",
+			"name": "dlPlayerDamage",
+			"type": 0,
+			"value": "0"
+		}
+	]
+}

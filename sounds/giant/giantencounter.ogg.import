@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/giantencounter.ogg-c03c2b5ca201052ecf31b2005dbd2a62.oggstr"
+
+[deps]
+
+source_file="res://sounds/giant/giantencounter.ogg"
+dest_files=[ "res://.import/giantencounter.ogg-c03c2b5ca201052ecf31b2005dbd2a62.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

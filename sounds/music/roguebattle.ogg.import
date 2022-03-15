@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/roguebattle.ogg-f6546301a1f90eeed9bf5e16d7c408ed.oggstr"
+
+[deps]
+
+source_file="res://sounds/music/roguebattle.ogg"
+dest_files=[ "res://.import/roguebattle.ogg-f6546301a1f90eeed9bf5e16d7c408ed.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=7.4

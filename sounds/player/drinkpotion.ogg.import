@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/drinkpotion.ogg-2636b56af6a6600069d74a647bc3524a.oggstr"
+
+[deps]
+
+source_file="res://sounds/player/drinkpotion.ogg"
+dest_files=[ "res://.import/drinkpotion.ogg-2636b56af6a6600069d74a647bc3524a.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

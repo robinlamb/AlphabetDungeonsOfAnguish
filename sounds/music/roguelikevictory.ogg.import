@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/roguelikevictory.ogg-8a47e3defb649c5b5eef0ae61b26bd16.oggstr"
+
+[deps]
+
+source_file="res://sounds/music/roguelikevictory.ogg"
+dest_files=[ "res://.import/roguelikevictory.ogg-8a47e3defb649c5b5eef0ae61b26bd16.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
